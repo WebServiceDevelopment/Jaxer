@@ -457,7 +457,7 @@ public:
   PRIntervalTime mInitTime;
 #endif
 
-private:
+protected:
   ~nsTimerEvent() { 
 #ifdef DEBUG
     if (mTimer)

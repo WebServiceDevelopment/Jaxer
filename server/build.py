@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-from local_settings import cfg
 from global_settings import gcfg
 import os
 import re
@@ -9,6 +8,36 @@ import sys
 import platform
 import time
 import datetime
+
+cfg = {
+        'jam_install':          '/opt/AptanaJaxer',
+        'unzip_location':       '/opt',
+        'start_servers':        '/opt/AptanaJaxer/scripts/start.sh',
+        'stop_servers':         '/opt/AptanaJaxer/scripts/stop.sh',
+        'httpd_pid':            '/opt/AptanaJaxer/Apache22/logs/httpd.pid',
+        'results_file':         '/opt/AptanaJaxer/jaxer/aptana/diagnostics/results.html',
+        'jam_package':          '/home/build/dev/trunk/products/server/distro/Jaxer_package_withApache.zip',
+        'jam_mount':            '',
+
+        'apache-name':          'httpd',
+        'apxs-name':            '/usr/bin/apxs',
+        'jaxermanager-name':    'jaxermanager',
+        'browser':              'firefox',
+        'browser-name':         'firefox',
+        'kill':                 'killall',
+
+        'host':                 'http://localhost:8081',
+        'page':                 'aptana/diagnostics/testRunner.html',
+        'query':                'runAll=true&writeTo=results.html',
+
+        'makeDocs':             False,
+        'frameworkRoot':        '/home/build/dev/trunk/products/server/src/mozilla/ff-release/dist/bin/framework/',
+        'docgenRoot':           '/home/build/dev/ide_crossover/libs/',
+        'docRoot':              '/home/build/dev/trunk/products/server/jam/jaxer/aptana/doc/api/',
+
+        'skipBuilds':           False
+}
+
 
 WINDOWS = 'win'
 MACOS   = 'mac'
@@ -386,13 +415,13 @@ if cfg['skipBuilds'] == False:
 #        dirs.remove('.svn')
 
     # Build servlet.
-    print "\n===== Building servlet."
-    if GetOS() == WINDOWS: # win32 javac must native ';' as a classpath sep even though win32 bash can understand ':'
-        system('cd src/connectors/servlet && build.bat')
-    else:
-        system('cd src/connectors/servlet && bash ./build.sh')
-    copyfile('src/connectors/servlet/products/jaxer-app.war',    'src/mozilla/' + ffdir + '/dist/bin/connectors')
-    copyfile('src/connectors/servlet/products/jaxer-server.war', 'src/mozilla/' + ffdir + '/dist/bin/connectors')
+    #print "\n===== Building servlet."
+    #if GetOS() == WINDOWS: # win32 javac must native ';' as a classpath sep even though win32 bash can understand ':'
+    #   system('cd src/connectors/servlet && build.bat')
+    #else:
+      #  system('cd src/connectors/servlet && bash ./build.sh')
+    #copyfile('src/connectors/servlet/products/jaxer-app.war',    'src/mozilla/' + ffdir + '/dist/bin/connectors')
+    #copyfile('src/connectors/servlet/products/jaxer-server.war', 'src/mozilla/' + ffdir + '/dist/bin/connectors')
 
     # Build mod_jaxer.
     print "\n===== Building mod_jaxer."
@@ -533,7 +562,7 @@ for root, dirs, files in os.walk('src/mozilla/' + ffdir + '/dist/bin'):
 print "\n  === Renaming/Removing extra stuff."
 if GetOS() == LINUX:
     print "\n   == Renaming jam/Apache22-local to jam/Apache22."
-    os.rename('jam/Apache22-local', 'jam/Apache22')
+    os.mkdir('jam/Apache22')
     shutil.copytree('src/scripts/unix', 'jam/scripts')
 #    shutil.rmtree('jam/scripts/.svn')
     os.remove('jam/StartServers.bat')

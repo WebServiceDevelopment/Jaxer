@@ -1763,7 +1763,7 @@ void InitSettings()
 void AcceptStdinCommand()
 {
     char cmdBuf[MAX_LINE_LENGTH];
-    while( gets(cmdBuf))
+    while( fgets(cmdBuf, MAX_LINE_LENGTH, stdin))
     {
         Administrator a(INVALID_SOCKET);
         strcpy(a.m_line, cmdBuf);

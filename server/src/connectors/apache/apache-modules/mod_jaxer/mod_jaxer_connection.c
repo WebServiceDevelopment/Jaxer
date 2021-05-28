@@ -75,7 +75,7 @@ void jxr_trace(const char* type, const char* data, int len, apr_pool_t *pool)
                 buf[3*NCHAR_PER_LINE+1+i] = p[i]; 
         }
 
-        ap_log_perror(APLOG_MARK, APLOG_ERR, 0, pool, buf);
+        // ap_log_perror(APLOG_MARK, APLOG_ERR, 0, pool, buf);
 
         len -= npl;
         p += npl;

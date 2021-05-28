@@ -1,0 +1,6 @@
+Adding client.mk options from /root/emrajs/server/src/mozilla/.mozconfig:
+    MOZ_CO_PROJECT=jaxer
+    MOZ_OBJDIR=$(TOPSRCDIR)/ff-release
+    MOZ_POSTFLIGHT+=postBuildJaxer.mk
+    MOZ_ENABLE_ODBC=1
+    MOZ_ODBC_LIBS=-lodbc

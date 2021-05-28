@@ -40,6 +40,7 @@
 #include <time.h>
 #include <netinet/in.h>
 #include <sys/file.h>
+#include <sys/resource.h>
 
 #ifdef SOLARIS
 #define _XPG4_2
