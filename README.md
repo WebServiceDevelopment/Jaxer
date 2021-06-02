@@ -86,7 +86,10 @@ Remove from end of file
 
 Sometimes the build does not properly generate the server-side
 framework, so we force write it with our version from this
-repositiory.
+repositiory. I think to build the framework the package ```openjdk-11-jre``` 
+is required, but we want to try to reduce the number of dependencies,
+and any changes to the framework will be done directly, in the folder
+anyways.
 
 ```
 # rm -rf /opt/AptanaJaxer/jaxer/framework
