@@ -17,7 +17,7 @@ Linode as a build / test environment.
 
 ```
 # apt-get update
-# apt-get install -y git vim gcc g++ make zip pkg-config libgtk2.0-dev libidl-dev libxt-dev apache2-dev unixodbc unixodbc-dev
+# apt-get install -y git vim gcc g++ make zip pkg-config libgtk2.0-dev libidl-dev libxt-dev apache2-dev unixodbc unixodbc-dev openjdk-11-jre
 
 # git clone https://github.com/behdad/pangox-compat.git
 # mv pangox-compat /usr/include/pango
@@ -82,18 +82,6 @@ Append to end of File
 Remove from end of file
 - 133 Include "${ANCHOR}/local_jaxer/conf/*.httpd.conf"
 --- End Edit ---
-```
-
-Sometimes the build does not properly generate the server-side
-framework, so we force write it with our version from this
-repositiory. I think to build the framework the package ```openjdk-11-jre``` 
-is required, but we want to try to reduce the number of dependencies,
-and any changes to the framework will be done directly, in the folder
-anyways.
-
-```
-# rm -rf /opt/AptanaJaxer/jaxer/framework
-# cp -r /opt/Jaxer/framework /opt/AptanaJaxer/jaxer/
 ```
 
 Last we can start the server with the command.
