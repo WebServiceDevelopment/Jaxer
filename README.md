@@ -13,6 +13,8 @@ Previous Documentation: [https://jaxer.wsd.co.jp/docs/](https://jaxer.wsd.co.jp/
 These are the instructions for how to build on Debian 10 x86_64. This repository uses
 Linode as a build / test environment. 
 
+<!--
+
 ```
 # apt-get update
 # apt-get install -y git vim gcc g++ make zip pkg-config libgtk2.0-dev libidl-dev libxt-dev apache2-dev unixodbc unixodbc-dev
@@ -101,6 +103,8 @@ If everything worked, you can navigate to your server's IP address.
 And you should be greeted with the following screen.
 
 ![Jaxer Greeter](https://raw.githubusercontent.com/WebServiceDevelopment/Jaxer/master/images/GreetingScreen.png)
+
+-->
 
 ## Mascot
 
