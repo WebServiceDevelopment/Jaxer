@@ -13,11 +13,9 @@ Previous Documentation: [https://jaxer.wsd.co.jp/docs/](https://jaxer.wsd.co.jp/
 These are the instructions for how to build on Debian 10 x86_64. This repository uses
 Linode as a build / test environment. 
 
-<!--
-
 ```
 # apt-get update
-# apt-get install -y git vim gcc g++ make zip pkg-config libgtk2.0-dev libidl-dev libxt-dev apache2-dev unixodbc unixodbc-dev openjdk-11-jre
+# apt-get install -y git vim gcc g++ make zip pkg-config libgtk2.0-dev libidl-dev libxt-dev apache2-dev unixodbc unixodbc-dev openjdk-11-jre bison flex
 
 # git clone https://github.com/behdad/pangox-compat.git
 # mv pangox-compat /usr/include/pango
@@ -37,9 +35,8 @@ Clone and build the repository
 ```
 # cd /opt
 # git clone https://github.com/WebServiceDevelopment/Jaxer.git
-# cd Jaxer
-# cd httpd-2.4.46
-# sh configureLinux.sh
+# cd Jaxer/httpd-2.4.46
+# ./configure --prefix=/opt/AptanaJaxer/Apache22
 # make
 # make install
 # cd ../server
@@ -94,8 +91,6 @@ If everything worked, you can navigate to your server's IP address.
 And you should be greeted with the following screen.
 
 ![Jaxer Greeter](https://raw.githubusercontent.com/WebServiceDevelopment/Jaxer/master/images/GreetingScreen.png)
-
--->
 
 ## Mascot
 
