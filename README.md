@@ -5,8 +5,9 @@
 Jaxer is a server-side Javascript application server that runs
 as an Apache module, with syntax similar to ASP on Linux.
 
-Documentation: [https://jaxer.wsd.co.jp/document/](https://jaxer.wsd.co.jp/document/)
-Previous Documentation: [https://jaxer.wsd.co.jp/docs/](https://jaxer.wsd.co.jp/docs/)
+- Blog: [https://wsdlab.com](https://wsdlab.com)  
+- Documentation: [https://jaxer.wsd.co.jp/document/](https://jaxer.wsd.co.jp/document/)  
+- Previous Documentation: [https://jaxer.wsd.co.jp/docs/](https://jaxer.wsd.co.jp/docs/)  
 
 ## Build On Debian 10
 
