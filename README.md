@@ -9,6 +9,8 @@ as an Apache module, with syntax similar to ASP on Linux.
 - Documentation: [https://jaxer.wsd.co.jp/document/](https://jaxer.wsd.co.jp/document/)  
 - Previous Documentation: [https://jaxer.wsd.co.jp/docs/](https://jaxer.wsd.co.jp/docs/)  
 
+<!--
+
 ## Build On Debian 10
 
 These are the instructions for how to build on Debian 10 x86_64. This repository uses
@@ -87,6 +89,8 @@ Last we can start the server with the command.
 ```
 # sh /opt/AptanaJaxer/scripts/start.sh
 ```
+
+-->
 
 If everything worked, you can navigate to your server's IP address. 
 And you should be greeted with the following screen.
