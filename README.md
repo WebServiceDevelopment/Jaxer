@@ -20,9 +20,16 @@ The dependencies are different depending on the platform. Once the dependencies 
 ```
 # yum update
 # yum groupinstall 'Development Tools'
-# yum -y install git apr-util-devel gcc pcre-devel make bison flex python2 gtk2-devel libXt-devel java-11-openjdk
+# yum -y install git apr-util-devel gcc pcre-devel make bison flex python2 gtk2-devel libXt-devel java-11-openjdk unixODBC-devel httpd-devel
 # alternatives --set python /usr/bin/python2
 # dnf --enablerepo=powertools install libIDL-devel
+```
+
+Rocky needs a core config file for the kernel version
+
+```
+cd /opt/Jaxer/server/src/mozilla/security/coreconf
+cp Linux4.19.mk Linux4.18.mk
 ```
 
 ### Dependencies On Debian 10
@@ -30,6 +37,15 @@ The dependencies are different depending on the platform. Once the dependencies 
 ```
 # apt-get update
 # apt-get install -y git vim gcc g++ make zip pkg-config libgtk2.0-dev libidl-dev libxt-dev apache2-dev unixodbc unixodbc-dev openjdk-11-jre bison flex
+```
+
+Ugly patch, Jaxer expects and older version of freetype. I tried a lot of cleaner
+ways to add freetype to the build path, but it didn't work. This is an ugly work
+around, but it works.
+
+```
+# ln -s /usr/include/freetype2/ft2build.h /usr/include/
+# ln -s /usr/include/freetype2/freetype /usr/include/
 ```
 
 ### Build Instructions
@@ -40,15 +56,6 @@ Install the expected version of the pango library.
 # git clone https://github.com/behdad/pangox-compat.git
 # mv pangox-compat /usr/include/pango
 '''
-
-Ugly patch, Jaxer expects and older version of freetype. I tried a lot of cleaner
-ways to add freetype to the build path, but it didn't work. This is an ugly work
-around, but it works.
-
-```
-# ln -s /usr/include/freetype2/ft2build.h /usr/include/
-# ln -s /usr/include/freetype2/freetype /usr/include/
-```
 
 Clone and build the repository
 
@@ -64,7 +71,7 @@ Clone and build the repository
 # cp -fr AptanaJaxer/* /opt/AptanaJaxer
 ```
 
-And then we should remove the freetype symbolic links as they are no longer needed.
+And then we should remove the freetype symbolic links as they are no longer needed. (On Debian)
 
 ```
 # rm -f /usr/include/ft2build.h
