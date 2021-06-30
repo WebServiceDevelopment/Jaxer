@@ -13,10 +13,31 @@ as an Apache module, with syntax similar to ASP on Linux.
 
 ## Build On Rocky Linux 8
 
+
+These are the instructions for how to build on Rocky Linux 8 x86_64. This repository uses
+Linode as a build / test environment. 
+
 ```
 # yum groupinstall 'Development Tools'
-# yum -y install git apr-util-devel gcc pcre-devel make bison flex python2 gtk2-devel
+# dnf --enablerepo=powertools install libIDL-devel
+# yum -y install git apr-util-devel gcc pcre-devel make bison flex python2 gtk2-devel libXt-devel java-11-openjdk
 # alternatives --set python /usr/bin/python2
+# git clone https://github.com/behdad/pangox-compat.git
+# mv pangox-compat /usr/include/pango
+```
+
+Clone and build the repository
+
+```
+# cd /opt
+# git clone https://github.com/WebServiceDevelopment/Jaxer.git
+# cd Jaxer/httpd-2.4.46
+# ./configure --prefix=/opt/AptanaJaxer/Apache22
+# make
+# make install
+# cd ../server
+# python build.py
+# cp -fr AptanaJaxer/* /opt/AptanaJaxer
 ```
 
 ## Build On Debian 10
