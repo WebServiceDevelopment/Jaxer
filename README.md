@@ -25,6 +25,13 @@ The dependencies are different depending on the platform. Once the dependencies 
 # dnf --enablerepo=powertools install libIDL-devel
 ```
 
+Open http port on firewall
+```
+# firewall-cmd --permanent --add-service=http
+# firewall-cmd --permanent --add-service=https
+# firewall-cmd --reload
+```
+
 Rocky needs a core config file for the kernel version
 
 ```
