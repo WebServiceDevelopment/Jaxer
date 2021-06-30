@@ -11,6 +11,14 @@ as an Apache module, with syntax similar to ASP on Linux.
 
 <!--
 
+## Build On Rocky Linux 8
+
+```
+# yum groupinstall 'Development Tools'
+# yum -y install git apr-util-devel gcc pcre-devel make bison flex python2 gtk2-devel
+# alternatives --set python /usr/bin/python2
+```
+
 ## Build On Debian 10
 
 These are the instructions for how to build on Debian 10 x86_64. This repository uses
