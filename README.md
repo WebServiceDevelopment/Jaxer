@@ -11,47 +11,35 @@ as an Apache module, with syntax similar to ASP on Linux.
 
 <!--
 
-## Build On Rocky Linux 8
+## Build on Linux x86_64
 
+The dependencies are different depending on the platform. Once the dependencies are installed, the build instructions are the same on each platform.
 
-These are the instructions for how to build on Rocky Linux 8 x86_64. This repository uses
-Linode as a build / test environment. 
+### Dependencies On Rocky Linux 8
 
 ```
+# yum update
 # yum groupinstall 'Development Tools'
-# dnf --enablerepo=powertools install libIDL-devel
 # yum -y install git apr-util-devel gcc pcre-devel make bison flex python2 gtk2-devel libXt-devel java-11-openjdk
 # alternatives --set python /usr/bin/python2
-# git clone https://github.com/behdad/pangox-compat.git
-# mv pangox-compat /usr/include/pango
+# dnf --enablerepo=powertools install libIDL-devel
 ```
 
-Clone and build the repository
-
-```
-# cd /opt
-# git clone https://github.com/WebServiceDevelopment/Jaxer.git
-# cd Jaxer/httpd-2.4.46
-# ./configure --prefix=/opt/AptanaJaxer/Apache22
-# make
-# make install
-# cd ../server
-# python build.py
-# cp -fr AptanaJaxer/* /opt/AptanaJaxer
-```
-
-## Build On Debian 10
-
-These are the instructions for how to build on Debian 10 x86_64. This repository uses
-Linode as a build / test environment. 
+### Dependencies On Debian 10
 
 ```
 # apt-get update
 # apt-get install -y git vim gcc g++ make zip pkg-config libgtk2.0-dev libidl-dev libxt-dev apache2-dev unixodbc unixodbc-dev openjdk-11-jre bison flex
+```
 
+### Build Instructions
+
+Install the expected version of the pango library. 
+
+```
 # git clone https://github.com/behdad/pangox-compat.git
 # mv pangox-compat /usr/include/pango
-```
+'''
 
 Ugly patch, Jaxer expects and older version of freetype. I tried a lot of cleaner
 ways to add freetype to the build path, but it didn't work. This is an ugly work
