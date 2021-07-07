@@ -9,8 +9,6 @@ as an Apache module, with syntax similar to ASP on Linux.
 - Documentation: [https://jaxer.wsd.co.jp/document/](https://jaxer.wsd.co.jp/document/)  
 - Previous Documentation: [https://jaxer.wsd.co.jp/docs/](https://jaxer.wsd.co.jp/docs/)  
 
-<!--
-
 ## Build on Linux x86_64
 
 The dependencies are different depending on the platform. Once the dependencies are installed, the build instructions are the same on each platform.
@@ -120,8 +118,6 @@ Last we can start the server with the command.
 ```
 # sh /opt/AptanaJaxer/scripts/start.sh
 ```
-
--->
 
 If everything worked, you can navigate to your server's IP address. 
 And you should be greeted with the following screen.
