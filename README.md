@@ -60,7 +60,7 @@ Install the expected version of the pango library.
 ```
 # git clone https://github.com/behdad/pangox-compat.git
 # mv pangox-compat /usr/include/pango
-'''
+```
 
 Clone and build the repository
 
